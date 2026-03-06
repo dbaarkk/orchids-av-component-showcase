@@ -122,10 +122,7 @@ export function LandingHero() {
         className="relative z-10 flex items-center justify-center mb-16"
       >
         <Link href="https://sovereignsites.in" target="_blank">
-          <button className="hero-cta-btn relative overflow-hidden bg-[#111] text-white px-7 py-3 rounded-xl text-base font-semibold hover:opacity-90 transition-all flex items-center gap-2 shadow-2xl hover:-translate-y-0.5 active:translate-y-0">
-            {/* moving gradient blobs inside button */}
-            <span className="btn-gradient-blob btn-blob-1" />
-            <span className="btn-gradient-blob btn-blob-2" />
+          <button className="relative overflow-hidden bg-white/10 backdrop-blur-sm border border-white/25 text-white px-7 py-3 rounded-xl text-base font-semibold hover:bg-white/15 transition-all flex items-center gap-2 shadow-lg hover:-translate-y-0.5 active:translate-y-0">
             <span className="relative z-10">Sovereign Sites</span>
             <ArrowUpRight className="relative z-10 w-4 h-4" strokeWidth={2.5} />
           </button>

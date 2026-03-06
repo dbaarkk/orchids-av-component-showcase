@@ -1,0 +1,19 @@
+
+> nextjs-new@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Found lockfile missing swc dependencies, patching...
+ ⨯ Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace
+[TypeError: Cannot read properties of undefined (reading 'os')]
+ ⚠ Found lockfile missing swc dependencies, patching...
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.20.0.52:3000
+
+ ✓ Starting...
+ ⨯ Failed to patch lockfile, please try uninstalling and reinstalling next in this workspace
+[TypeError: Cannot read properties of undefined (reading 'os')]
+ ✓ Ready in 790ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.4s
+ HEAD / 200 in 3754ms

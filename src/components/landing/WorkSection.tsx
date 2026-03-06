@@ -51,7 +51,7 @@ export function WorkSection() {
     <section id="work" className="relative bg-white font-plus-jakarta">
       {/* Section heading — normal flow, not sticky */}
       <div className="pt-24 pb-16 flex flex-col items-center text-center px-4">
-        <h2 className="text-6xl md:text-[8rem] font-black tracking-tighter leading-none text-black uppercase mb-6">
+        <h2 className="text-6xl md:text-[8rem] font-black tracking-tighter leading-none text-black mb-6">
           Selected <br /> Works
         </h2>
         <div className="w-24 h-[6px] bg-black rounded-full" />

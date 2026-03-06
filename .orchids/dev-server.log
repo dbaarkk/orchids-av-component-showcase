@@ -28,3 +28,4 @@
  GET /favicon.ico?favicon.0b3bf435.ico 200 in 219ms
  GET / 200 in 271ms
  GET / 200 in 96ms
+ ✓ Compiled in 136ms

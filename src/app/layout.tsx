@@ -6,6 +6,8 @@ import { VisualEditsMessenger } from "orchids-visual-edits";
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -28,6 +30,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload hero background image so it's ready before first paint */}
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-bg.jpg"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={`${plusJakartaSans.variable} ${jetBrainsMono.variable} antialiased`}
       >

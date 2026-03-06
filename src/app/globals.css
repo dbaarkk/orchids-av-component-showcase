@@ -78,3 +78,93 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* ── Moving gradient blobs inside dark buttons ── */
+@keyframes blob-drift-1 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(40%, -20%) scale(1.2); }
+  66%  { transform: translate(-20%, 30%) scale(0.9); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+@keyframes blob-drift-2 {
+  0%   { transform: translate(0%, 0%) scale(1); }
+  33%  { transform: translate(-30%, 20%) scale(1.1); }
+  66%  { transform: translate(25%, -25%) scale(1.3); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+.btn-gradient-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(14px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.btn-blob-1 {
+  width: 60%;
+  height: 120%;
+  top: -20%;
+  left: -10%;
+  background: radial-gradient(circle, #a855f7 0%, #6366f1 50%, transparent 100%);
+  animation: blob-drift-1 5s ease-in-out infinite;
+}
+.btn-blob-2 {
+  width: 50%;
+  height: 100%;
+  top: 10%;
+  right: -10%;
+  background: radial-gradient(circle, #3b82f6 0%, #06b6d4 50%, transparent 100%);
+  animation: blob-drift-2 6s ease-in-out infinite;
+}
+
+/* ── Hero CTA button — same blobs, slightly larger ── */
+.hero-cta-btn .btn-blob-1 {
+  width: 70%;
+  height: 140%;
+  opacity: 0.28;
+}
+.hero-cta-btn .btn-blob-2 {
+  width: 60%;
+  height: 120%;
+  opacity: 0.24;
+}
+
+/* ── Navbar white gradient orbs ── */
+@keyframes nav-orb-drift-1 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(18px, -8px) scale(1.1); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes nav-orb-drift-2 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(-14px, 6px) scale(1.15); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes nav-orb-drift-3 {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  50%  { transform: translate(10px, 10px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+@keyframes nav-orb-drift-4 {
+  0%   { transform: translate(0px, 0px) scale(1.05); }
+  50%  { transform: translate(-20px, -5px) scale(1); }
+  100% { transform: translate(0px, 0px) scale(1.05); }
+}
+
+.nav-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 70%);
+  filter: blur(18px);
+}
+
+/* Spread orbs across full navbar width & height */
+.nav-orb-1 { width: 120px; height: 60px; top: -10px; left: 5%;  animation: nav-orb-drift-1 7s ease-in-out infinite; opacity: 0.18; }
+.nav-orb-2 { width: 90px;  height: 50px; top: 5px;  left: 18%; animation: nav-orb-drift-2 9s ease-in-out infinite; opacity: 0.14; }
+.nav-orb-3 { width: 110px; height: 55px; top: -5px; left: 33%; animation: nav-orb-drift-3 8s ease-in-out infinite; opacity: 0.16; }
+.nav-orb-4 { width: 100px; height: 48px; top: 8px;  left: 48%; animation: nav-orb-drift-4 10s ease-in-out infinite; opacity: 0.13; }
+.nav-orb-5 { width: 130px; height: 60px; top: -8px; left: 62%; animation: nav-orb-drift-1 6s ease-in-out infinite 1s; opacity: 0.17; }
+.nav-orb-6 { width: 95px;  height: 45px; top: 4px;  left: 75%; animation: nav-orb-drift-2 11s ease-in-out infinite 0.5s; opacity: 0.15; }
+.nav-orb-7 { width: 115px; height: 55px; top: -6px; left: 86%; animation: nav-orb-drift-3 7.5s ease-in-out infinite 2s; opacity: 0.14; }
+.nav-orb-8 { width: 85px;  height: 42px; top: 6px;  left: 92%; animation: nav-orb-drift-4 9.5s ease-in-out infinite 1.5s; opacity: 0.12; }

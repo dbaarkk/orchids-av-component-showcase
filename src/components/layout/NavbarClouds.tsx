@@ -14,7 +14,6 @@ export default function NavbarClouds() {
 
     let cancelled = false;
 
-    // Dynamically import vanta clouds (skips SSR, loads instantly client-side)
     import("vanta/dist/vanta.clouds.min.js").then((mod) => {
       if (cancelled || vantaRef.current) return;
 
@@ -28,14 +27,24 @@ export default function NavbarClouds() {
         gyroControls: false,
         minHeight: 64,
         minWidth: 200,
-        // Sky gradient: rich blue top, lighter horizon bottom
-        skyColor: 0x3a7bd5,
-        cloudColor: 0xf0f4ff,
-        cloudShadowColor: 0xb8c8e8,
-        sunColor: 0xfff8e7,
-        sunGlareColor: 0xffe5a0,
-        sunlightColor: 0xfff0c0,
-        speed: 1.2,
+
+        // Deep azure sky — strong contrast with white clouds
+        skyColor: 0x1a6aad,
+        // Bright crisp white clouds
+        cloudColor: 0xfafcff,
+        // Dark blue-grey shadow — gives volumetric depth & HD definition
+        cloudShadowColor: 0x1a3a5c,
+        // Warm golden sun for glossy highlights
+        sunColor: 0xffa020,
+        sunGlareColor: 0xff7700,
+        sunlightColor: 0xffcc66,
+
+        // Lower scale = tighter, more defined cloud shapes (less misty)
+        scale: 1,
+        scaleMobile: 1,
+
+        // Gentle constant motion
+        speed: 0.8,
       });
     });
 

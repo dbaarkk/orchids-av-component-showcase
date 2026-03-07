@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const roles = ["Full Stack Website Developer", "Founder of Sovereign Sites"];
@@ -27,15 +28,19 @@ export function LandingHero() {
   return (
     <section
       className="relative pt-40 pb-24 flex flex-col items-center text-center px-4 overflow-hidden min-h-[85vh] justify-center font-plus-jakarta"
-      style={{
-        backgroundImage: "url('/hero-bg.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-      }}
     >
+      {/* Background Image */}
+      <Image
+        src="/hero-bg.jpg"
+        alt="Hero Background"
+        fill
+        priority
+        className="object-cover object-top -z-20"
+        sizes="100vw"
+      />
+
       {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/30 pointer-events-none -z-10" />
 
       {/* Available badge */}
       <motion.div

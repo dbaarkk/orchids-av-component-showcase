@@ -2,61 +2,15 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import dynamic from "next/dynamic";
-import { useEffect, useState } from "react";
-
-// Dynamically imported — no SSR, loads instantly on client
-const NavbarClouds = dynamic(() => import("./NavbarClouds"), { ssr: false });
 
 export function Navbar() {
-  const [cloudOpacity, setCloudOpacity] = useState(1);
-
-  useEffect(() => {
-    const hero = document.querySelector("section") as HTMLElement | null;
-
-    const update = () => {
-      const heroBottom = hero
-        ? hero.offsetTop + hero.offsetHeight
-        : window.innerHeight * 0.85;
-      const fadeStart = heroBottom - window.innerHeight * 0.35;
-      const fadeEnd = heroBottom;
-      const scroll = window.scrollY;
-
-      if (scroll <= fadeStart) {
-        setCloudOpacity(1);
-      } else if (scroll >= fadeEnd) {
-        setCloudOpacity(0);
-      } else {
-        setCloudOpacity(1 - (scroll - fadeStart) / (fadeEnd - fadeStart));
-      }
-    };
-
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
-  }, []);
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 backdrop-blur-md flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
-
-      {/* ── Vanta clouds — fades as user scrolls past hero ── */}
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-background/50 backdrop-blur-md flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
+      {/* ── Grainy background ── */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay"
         style={{
-          opacity: cloudOpacity,
-          transition: "opacity 0.1s linear",
-          willChange: "opacity",
-        }}
-      >
-        <NavbarClouds />
-      </div>
-
-      {/* Semi-transparent bg fallback when clouds have faded */}
-      <div
-        className="absolute inset-0 pointer-events-none bg-background/80"
-        style={{
-          opacity: 1 - cloudOpacity,
-          transition: "opacity 0.1s linear",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
         }}
       />
 

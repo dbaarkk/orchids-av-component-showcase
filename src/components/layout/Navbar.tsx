@@ -9,15 +9,15 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-black flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
       <PixelBlast
         color="#ffffff"
-        pixelSize={1.5}
-        patternScale={4}
-        patternDensity={0.4}
-        speed={0.2}
+        pixelSize={0.8}
+        patternScale={6}
+        patternDensity={0.65}
+        speed={0.15}
         transparent={true}
-        edgeFade={0.3}
+        edgeFade={0.4}
         liquid={true}
-        liquidStrength={0.05}
-        className="opacity-20"
+        liquidStrength={0.04}
+        className="opacity-25"
       />
 
       {/* Left nav links — desktop only */}

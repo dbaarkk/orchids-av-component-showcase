@@ -2,6 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
@@ -11,6 +12,7 @@ const projects = [
       "A premium web development agency specializing in high-performance, conversion-optimized digital experiences for modern brands.",
     link: "https://sovereignsites.in",
     bg: "#ffffff",
+    image: "/teachers.webp",
   },
   {
     title: "theurbanauto.com",
@@ -19,6 +21,7 @@ const projects = [
       "A sleek booking website for an upscale garage — customers can schedule services, explore packages, and track their vehicle's status online.",
     link: "https://theurbanauto.com",
     bg: "#f5f5f7",
+    image: "/students__1_.webp",
   },
   {
     title: "app.theurbanauto.com",
@@ -27,6 +30,7 @@ const projects = [
       "Internal management app for The Urban Auto — streamlining job cards, customer records, service workflows, and real-time garage operations.",
     link: "https://app.theurbanauto.com",
     bg: "#ffffff",
+    image: "/schools.webp",
   },
   {
     title: "inkai.in",
@@ -35,6 +39,7 @@ const projects = [
       "An immersive e-commerce platform for a manga lifestyle brand — featuring art prints, apparel, and collectibles with a hand-crafted visual identity built for true fans.",
     link: "https://inkai.in",
     bg: "#f5f5f7",
+    image: "/partners.webp",
   },
   {
     title: "petalmind.in",
@@ -43,6 +48,7 @@ const projects = [
       "An AI-powered mental wellness ecosystem providing empathetic, personalized support and evidence-based therapeutic tools for holistic growth.",
     link: "https://petalmind.in",
     bg: "#ffffff",
+    image: "/576f6ed76b661e9af4f690d4ad21cc8b.jpg",
   },
 ];
 
@@ -70,11 +76,21 @@ export function WorkSection() {
             }}
           >
             <div
-              className="w-full max-w-6xl mx-auto rounded-[2.5rem] border border-black/10 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12)] p-8 md:p-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8"
+              className="w-full max-w-6xl mx-auto rounded-[2.5rem] border border-black/10 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12)] p-8 md:p-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8 overflow-hidden relative"
               style={{ backgroundColor: project.bg }}
             >
+              {/* Background Image with blur */}
+              <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover blur-2xl scale-110"
+                />
+              </div>
+
               {/* Left: text content */}
-              <div className="flex flex-col gap-4 flex-1 min-w-0">
+              <div className="flex flex-col gap-4 flex-1 min-w-0 relative z-10">
                 {/* Tag + project number */}
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-black tracking-[0.3em] uppercase text-black/30">
@@ -100,7 +116,7 @@ export function WorkSection() {
               <Link
                 href={project.link}
                 target="_blank"
-                className="shrink-0 flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-black/80 transition-colors self-start md:self-center"
+                className="shrink-0 flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-black/80 transition-colors self-start md:self-center relative z-10"
               >
                 Visit
                 <ExternalLink className="w-4 h-4" />

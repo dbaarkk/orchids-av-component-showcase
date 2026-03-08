@@ -5,12 +5,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { categories, components } from "@/lib/data";
 import { ComponentPreview } from "@/components/library/ComponentPreview";
-import { Copy, Check, Eye, Code, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Copy, Check, Code, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ComponentsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery] = useState("");
   const [copyingId, setCopyingId] = useState<string | null>(null);
 
   const filteredComponents = components.filter((comp) => {

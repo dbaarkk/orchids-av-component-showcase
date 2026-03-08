@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
 
 export function ComponentPreview({ id }: { id: string }) {
   if (id === "split-text") {

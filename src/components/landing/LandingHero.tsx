@@ -36,7 +36,7 @@ export function LandingHero() {
         fill
         priority
         unoptimized
-        className="object-cover object-top -z-20 scale-[1.03] blur-[2px]"
+        className="object-cover object-top -z-20 scale-[1.03]"
       />
 
       {/* Subtle overlay for readability while maintaining brightness */}

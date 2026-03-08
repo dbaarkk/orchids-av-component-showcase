@@ -35,9 +35,8 @@ export function LandingHero() {
         alt="Hero Background"
         fill
         priority
-        quality={100}
+        unoptimized
         className="object-cover object-top -z-20 scale-[1.03] blur-[2px]"
-        sizes="100vw"
       />
 
       {/* Subtle overlay for readability while maintaining brightness */}

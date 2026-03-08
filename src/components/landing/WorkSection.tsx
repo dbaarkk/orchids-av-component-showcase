@@ -42,11 +42,11 @@ const projects = [
     image: "/partners.webp",
   },
   {
-    title: "petalmind.in",
-    tag: "Mental Wellness",
+    title: "info.aaryaveersharma.in",
+    tag: "Information",
     description:
-      "An AI-powered mental wellness ecosystem providing empathetic, personalized support and evidence-based therapeutic tools for holistic growth.",
-    link: "https://petalmind.in",
+      "Aaryaveer Sharma's detailed information website visit to know more about developer Aaryaveer and his work/services",
+    link: "https://info.aaryaveersharma.in",
     bg: "#ffffff",
     image: "/576f6ed76b661e9af4f690d4ad21cc8b.jpg",
   },

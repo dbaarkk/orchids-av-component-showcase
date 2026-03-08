@@ -35,7 +35,7 @@ export function LandingHero() {
         alt="Hero Background"
         fill
         priority
-        className="object-cover object-top -z-20 blur-md scale-105"
+        className="object-cover object-top -z-20 blur-[2.5px] scale-[1.03]"
         sizes="100vw"
       />
 
@@ -59,12 +59,11 @@ export function LandingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-[#C0C0C0]"
-        style={{ filter: "blur(0.8px)" }}
       >
         Aaryaveer Sharma&apos;s
         <br />
         <span
-          className="italic font-medium text-gray-400"
+          className="italic font-medium text-gray-500"
         >
           Portfolio
         </span>

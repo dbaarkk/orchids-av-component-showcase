@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-background/50 backdrop-blur-md flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-black/60 backdrop-blur-md flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
       {/* ── Grainy background ── */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay"

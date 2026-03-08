@@ -155,7 +155,7 @@ export function ProcessSection() {
           <div className="flex items-center gap-12 h-full py-20 overflow-visible">
             {/* Progress Label */}
             <div className="hidden xl:flex flex-col items-end justify-center text-right opacity-30 pointer-events-none">
-              <span className="text-xs font-black tracking-widest uppercase mb-4">The <br /> Process</span>
+              <h2 className="text-xs font-black tracking-widest uppercase mb-4">The <br /> Process</h2>
               <div className="w-12 h-1 bg-black rounded-full" />
             </div>
 

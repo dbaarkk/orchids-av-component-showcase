@@ -23,11 +23,37 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aaryaveersharma.in"),
   title: "Aaryaveer Sharma | Portfolio",
   description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Aaryaveer Sharma | Portfolio",
+    description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+    url: "https://aaryaveersharma.in",
+    siteName: "Aaryaveer Sharma",
+    images: [
+      {
+        url: "/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aaryaveer Sharma Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aaryaveer Sharma | Portfolio",
+    description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+    images: ["/hero-bg.jpg"],
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 

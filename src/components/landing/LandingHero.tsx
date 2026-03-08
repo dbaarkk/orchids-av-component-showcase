@@ -32,7 +32,7 @@ export function LandingHero() {
       {/* Background Image */}
       <Image
         src="/hero-bg.jpg"
-        alt="Hero Background"
+        alt="Aaryaveer Sharma Portfolio Background"
         fill
         priority
         unoptimized
@@ -65,13 +65,7 @@ export function LandingHero() {
           transform: "translateZ(0)"
         }}
       >
-        Aaryaveer Sharma&apos;s
-        <br />
-        <span
-          className="font-instrument-serif text-zinc-400 block mt-4 italic"
-        >
-          Portfolio
-        </span>
+        Aaryaveer Sharma&apos;s Portfolio
       </motion.h1>
 
       {/* Flipping role subtitle */}

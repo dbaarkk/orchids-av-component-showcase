@@ -10,6 +10,14 @@ import { motion } from "framer-motion";
 
 export default function ComponentsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Component Library - Aaryaveer Sharma",
+    "description": "A collection of beautifully crafted UI components to copy and paste into your projects.",
+    "url": "https://aaryaveersharma.in/components"
+  };
   const [searchQuery] = useState("");
   const [copyingId, setCopyingId] = useState<string | null>(null);
 
@@ -28,6 +36,10 @@ export default function ComponentsPage() {
 
   return (
     <main className="min-h-screen flex flex-col pt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       
       <div className="flex flex-1">

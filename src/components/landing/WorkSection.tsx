@@ -83,7 +83,7 @@ export function WorkSection() {
               <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} project preview`}
                   fill
                   className="object-cover blur-xl scale-110"
                 />

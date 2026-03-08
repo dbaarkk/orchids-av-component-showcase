@@ -5,9 +5,9 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-black py-24 px-6 md:px-12 mt-auto font-plus-jakarta text-white">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
         <div className="space-y-8 flex-1">
-          <h3 className="font-black text-6xl tracking-tighter leading-none bg-gradient-to-b from-zinc-100 to-zinc-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+          <h2 className="font-black text-6xl tracking-tighter leading-none bg-gradient-to-b from-zinc-100 to-zinc-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             Aaryaveer <br /> Sharma
-          </h3>
+          </h2>
           <p className="text-zinc-400 text-xl max-w-sm font-bold tracking-tight">
             Crafting high-performance digital experiences that help brands stand out in the noise.
           </p>

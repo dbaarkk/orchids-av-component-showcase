@@ -2,16 +2,22 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import PixelBlast from "../ui/PixelBlast";
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-black/60 backdrop-blur-md flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
-      {/* ── Grainy background ── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        }}
+    <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-black flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
+      <PixelBlast
+        color="#ffffff"
+        pixelSize={1.5}
+        patternScale={4}
+        patternDensity={0.4}
+        speed={0.2}
+        transparent={true}
+        edgeFade={0.3}
+        liquid={true}
+        liquidStrength={0.05}
+        className="opacity-20"
       />
 
       {/* Left nav links — desktop only */}

@@ -26,6 +26,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://aaryaveersharma.in"),
   title: "Aaryaveer Sharma | Portfolio",
   description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+  applicationName: "Aaryaveer Sharma",
+  appleWebApp: {
+    title: "Aaryaveer Sharma",
+  },
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",

@@ -65,7 +65,11 @@ export function LandingHero() {
           transform: "translateZ(0)"
         }}
       >
-        Aaryaveer Sharma&apos;s Portfolio
+        Aaryaveer Sharma&apos;s
+        <br />
+        <span className="font-instrument-serif text-zinc-400 block mt-4 italic">
+          Portfolio
+        </span>
       </motion.h1>
 
       {/* Flipping role subtitle */}

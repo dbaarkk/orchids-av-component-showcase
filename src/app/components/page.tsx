@@ -18,7 +18,7 @@ export default function ComponentsPage() {
     "description": "A collection of beautifully crafted UI components to copy and paste into your projects.",
     "url": "https://aaryaveersharma.in/components"
   };
-  const [searchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [copyingId, setCopyingId] = useState<string | null>(null);
 
   const filteredComponents = components.filter((comp) => {

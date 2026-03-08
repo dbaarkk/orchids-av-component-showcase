@@ -24,7 +24,7 @@ export default function Home() {
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Aaryaveer Sharma Portfolio",
+    "name": "Aaryaveer Sharma",
     "url": "https://aaryaveersharma.in",
     "author": {
       "@type": "Person",

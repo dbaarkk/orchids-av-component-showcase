@@ -2,23 +2,11 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import PixelBlast from "../ui/PixelBlast";
 
 export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 h-16 border-b border-white/10 bg-black flex items-center px-6 md:px-12 font-plus-jakarta overflow-hidden">
-      <PixelBlast
-        color="#ffffff"
-        pixelSize={0.8}
-        patternScale={6}
-        patternDensity={0.65}
-        speed={0.15}
-        transparent={true}
-        edgeFade={0.4}
-        liquid={true}
-        liquidStrength={0.04}
-        className="opacity-25"
-      />
+      <div className="absolute inset-0 bg-grain opacity-[0.15] pointer-events-none" />
 
       {/* Left nav links — desktop only */}
       <div className="hidden md:flex items-center gap-6 relative z-10">

@@ -80,12 +80,12 @@ export function WorkSection() {
               style={{ backgroundColor: project.bg }}
             >
               {/* Background Image with blur */}
-              <div className="absolute inset-0 z-0 opacity-15 pointer-events-none">
+              <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover blur-2xl scale-110"
+                  className="object-cover blur-xl scale-110"
                 />
               </div>
 

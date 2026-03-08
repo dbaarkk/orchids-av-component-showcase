@@ -3,7 +3,12 @@
 import { motion, useScroll, useTransform, useSpring, MotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 
-const steps = [
+interface Step {
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
   {
     title: "Discovery",
     description: "Deep dive into your business goals, target audience, and competition to craft a precise digital roadmap."
@@ -41,7 +46,7 @@ function ProgressDot({ index, total, progress }: { index: number, total: number,
   );
 }
 
-function StepContent({ step, index, total, progress }: { step: any, index: number, total: number, progress: MotionValue<number> }) {
+function StepContent({ step, index, total, progress }: { step: Step, index: number, total: number, progress: MotionValue<number> }) {
   // Each step occupies 1/total of the scroll range
   const segmentSize = 1 / total;
   const start = index * segmentSize;

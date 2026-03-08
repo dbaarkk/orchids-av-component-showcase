@@ -35,12 +35,13 @@ export function LandingHero() {
         alt="Hero Background"
         fill
         priority
-        className="object-cover object-top -z-20 blur-[2.5px] scale-[1.03]"
+        quality={100}
+        className="object-cover object-top -z-20 scale-[1.03] blur-[2px]"
         sizes="100vw"
       />
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none -z-10" />
+      {/* Subtle overlay for readability while maintaining brightness */}
+      <div className="absolute inset-0 bg-black/15 pointer-events-none -z-10" />
 
       {/* Available badge */}
       <motion.div
@@ -58,12 +59,17 @@ export function LandingHero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-[#C0C0C0]"
+        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
+        style={{
+          backfaceVisibility: "hidden",
+          WebkitFontSmoothing: "antialiased",
+          transform: "translateZ(0)"
+        }}
       >
         Aaryaveer Sharma&apos;s
         <br />
         <span
-          className="italic font-medium text-gray-500"
+          className="font-instrument-serif text-zinc-400 block mt-4 italic"
         >
           Portfolio
         </span>

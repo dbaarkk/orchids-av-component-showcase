@@ -8,6 +8,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-instrument-serif: var(--font-instrument-serif);
   
   --color-border: var(--border);
   --color-input: var(--input);

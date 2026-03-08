@@ -35,7 +35,7 @@ export function LandingHero() {
         alt="Hero Background"
         fill
         priority
-        className="object-cover object-top -z-20"
+        className="object-cover object-top -z-20 blur-md scale-105"
         sizes="100vw"
       />
 
@@ -48,7 +48,6 @@ export function LandingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10 flex items-center gap-2 mb-8 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase text-white"
-        style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
       >
         <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
         Available for new projects 2026
@@ -59,20 +58,13 @@ export function LandingHero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-white"
-        style={{
-          textShadow:
-            "0 4px 24px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)",
-        }}
+        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-[#C0C0C0]"
+        style={{ filter: "blur(0.8px)" }}
       >
         Aaryaveer Sharma&apos;s
         <br />
         <span
-          className="italic font-medium"
-          style={{
-            textShadow:
-              "0 4px 24px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)",
-          }}
+          className="italic font-medium text-gray-400"
         >
           Portfolio
         </span>
@@ -94,11 +86,7 @@ export function LandingHero() {
             exit={{ rotateX: 90, opacity: 0, y: -20 }}
             transition={{ duration: 0.45, ease: "easeInOut" }}
             className="absolute text-lg md:text-2xl font-bold tracking-tight text-white"
-            style={{
-              transformOrigin: "center",
-              textShadow:
-                "0 3px 16px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.9)",
-            }}
+            style={{ transformOrigin: "center" }}
           >
             {roles[roleIndex]}
           </motion.span>
@@ -111,10 +99,6 @@ export function LandingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
         className="relative z-10 text-base md:text-lg text-white/90 mb-12 max-w-xl leading-relaxed tracking-tight"
-        style={{
-          textShadow:
-            "0 2px 12px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)",
-        }}
       >
         Specializing in bespoke web solutions — crafted for businesses and individuals who refuse to settle for ordinary.
       </motion.p>
@@ -141,8 +125,7 @@ export function LandingHero() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 pointer-events-none z-10"
       >
-        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80"
-          style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">
           Scroll to explore
         </span>
         <div className="w-px h-12 bg-white/20 relative overflow-hidden">

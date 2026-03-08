@@ -16,8 +16,8 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AV Asset Library",
-  description: "Advanced components for modern web developers.",
+  title: "Aaryaveer Sharma | Portfolio",
+  description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
   icons: {
     icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/file_00000000331c7206b95a8124ab4d9582-1772627591543.png?width=8000&height=8000&resize=contain",
   },

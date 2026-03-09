@@ -2,7 +2,6 @@
 
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 const projects = [
   {
@@ -11,8 +10,6 @@ const projects = [
     description:
       "A premium web development agency specializing in high-performance, conversion-optimized digital experiences for modern brands.",
     link: "https://sovereignsites.in",
-    bg: "#ffffff",
-    image: "/teachers.webp",
   },
   {
     title: "theurbanauto.com",
@@ -20,8 +17,6 @@ const projects = [
     description:
       "A sleek booking website for an upscale garage — customers can schedule services, explore packages, and track their vehicle's status online.",
     link: "https://theurbanauto.com",
-    bg: "#f5f5f7",
-    image: "/students__1_.webp",
   },
   {
     title: "app.theurbanauto.com",
@@ -29,103 +24,74 @@ const projects = [
     description:
       "Internal management app for The Urban Auto — streamlining job cards, customer records, service workflows, and real-time garage operations.",
     link: "https://app.theurbanauto.com",
-    bg: "#ffffff",
-    image: "/schools.webp",
   },
   {
     title: "inkai.in",
     tag: "Manga Brand",
     description:
-      "An immersive e-commerce platform for a manga lifestyle brand — featuring art prints, apparel, and collectibles with a hand-crafted visual identity built for true fans.",
+      "An immersive e-commerce platform for a manga lifestyle brand — featuring art prints, apparel, and collectibles with a hand-crafted visual identity.",
     link: "https://inkai.in",
-    bg: "#f5f5f7",
-    image: "/partners.webp",
   },
   {
-    title: "petalmind.in",
-    tag: "Mental Wellness",
+    title: "info.aaryaveersharma.in",
+    tag: "Information",
     description:
-      "An AI-powered mental wellness ecosystem providing empathetic, personalized support and evidence-based therapeutic tools for holistic growth.",
-    link: "https://petalmind.in",
-    bg: "#ffffff",
-    image: "/576f6ed76b661e9af4f690d4ad21cc8b.jpg",
+      "A comprehensive digital resume and information portal detailing professional experience, technical expertise, and personal milestones.",
+    link: "https://info.aaryaveersharma.in",
   },
 ];
 
 export function WorkSection() {
   return (
-    <section id="work" className="relative bg-white font-plus-jakarta">
-      {/* Section heading — normal flow, not sticky */}
-      <div className="pt-24 pb-16 flex flex-col items-center text-center px-4">
-        <h2 className="text-6xl md:text-[8rem] font-black tracking-tighter leading-none text-black mb-6">
-          Selected <br /> Works
-        </h2>
-        <div className="w-24 h-[6px] bg-black rounded-full" />
-      </div>
+    <section id="work" className="relative bg-white font-plus-jakarta py-24 px-4 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <div className="mb-20 text-center flex flex-col items-center">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-black mb-6">
+            Selected <br /> Works
+          </h2>
+          <div className="w-24 h-1.5 bg-black rounded-full" />
+        </div>
 
-      {/* Stacking cards via CSS sticky */}
-      <div className="relative px-4 md:px-12 pb-8">
-        {projects.map((project, index) => (
-          <div
-            key={project.title}
-            className="sticky"
-            style={{
-              top: `${72 + index * 18}px`,
-              zIndex: index + 1,
-              marginBottom: index === projects.length - 1 ? 0 : "0px",
-            }}
-          >
+        {/* Square Grid of Black Boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
             <div
-              className="w-full max-w-6xl mx-auto rounded-[2.5rem] border border-black/10 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12)] p-8 md:p-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8 overflow-hidden relative"
-              style={{ backgroundColor: project.bg }}
+              key={project.title}
+              className="aspect-square bg-black border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden"
             >
-              {/* Background Image with blur */}
-              <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} project preview`}
-                  fill
-                  className="object-cover blur-xl scale-110"
-                />
-              </div>
-
-              {/* Left: text content */}
-              <div className="flex flex-col gap-4 flex-1 min-w-0 relative z-10">
-                {/* Tag + project number */}
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-black tracking-[0.3em] uppercase text-black/30">
+              {/* Top: Project Info */}
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-black tracking-[0.3em] uppercase text-zinc-500">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-xs font-black tracking-widest uppercase bg-black/5 border border-black/10 px-3 py-1 rounded-full text-black/60">
+                  <span className="text-[10px] font-black tracking-widest uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full text-zinc-400">
                     {project.tag}
                   </span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-black leading-none">
+                <h3 className="text-2xl font-black tracking-tight text-white leading-tight">
                   {project.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-base md:text-lg text-black/60 font-medium leading-relaxed max-w-xl">
+                <p className="text-sm md:text-base text-zinc-400 font-medium leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
-              {/* Right: visit button */}
+              {/* Bottom: Visit Button */}
               <Link
                 href={project.link}
                 target="_blank"
-                className="shrink-0 flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-black/80 transition-colors self-start md:self-center relative z-10"
+                className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-12 px-8 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300"
               >
                 Visit
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </Link>
             </div>
-          </div>
-        ))}
-        {/* Spacer so last card doesn't get buried under sticky cards */}
-        <div style={{ height: `${projects.length * 18 + 40}px` }} />
+          ))}
+        </div>
       </div>
     </section>
   );

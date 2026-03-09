@@ -5,6 +5,9 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-black py-24 px-6 md:px-12 mt-auto font-plus-jakarta text-white">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
         <div className="space-y-8 flex-1">
+          <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-6">
+            <span className="text-black font-black text-xl tracking-tighter">AV</span>
+          </div>
           <h2 className="font-black text-6xl tracking-tighter leading-none bg-gradient-to-b from-zinc-100 to-zinc-500 bg-clip-text text-transparent filter drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
             Aaryaveer <br /> Sharma
           </h2>

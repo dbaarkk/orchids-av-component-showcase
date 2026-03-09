@@ -62,7 +62,7 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
           scale,
           top: `calc(10vh + ${index * 28}px)`,
         }}
-        className="relative aspect-square bg-black border border-white/10 rounded-none p-8 md:p-12 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden w-[90vw] max-w-[550px]"
+        className="relative aspect-square bg-black border border-white/10 rounded-[2rem] p-8 md:p-14 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden w-[90vw] max-w-[550px]"
       >
         {/* Top: Project Info */}
         <div className="flex flex-col gap-6">
@@ -70,12 +70,12 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
             <span className="text-sm font-black tracking-[0.3em] uppercase text-zinc-500">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span className="text-[10px] font-black tracking-widest uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-none text-zinc-400">
+            <span className="text-[10px] font-black tracking-widest uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full text-zinc-400">
               {project.tag}
             </span>
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-black tracking-tight text-white leading-tight">
+          <h3 className="text-3xl md:text-4xl font-black tracking-tight text-white leading-tight break-words pr-4">
             {project.title}
           </h3>
 
@@ -88,7 +88,7 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
         <Link
           href={project.link}
           target="_blank"
-          className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-14 px-10 rounded-none text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300"
+          className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-14 px-10 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300"
         >
           Visit
           <ExternalLink className="w-4 h-4" />
@@ -113,7 +113,7 @@ export function WorkSection() {
           <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-black mb-6">
             Selected <br /> Works
           </h2>
-          <div className="w-24 h-1.5 bg-black rounded-none" />
+          <div className="w-24 h-1.5 bg-black rounded-full" />
         </div>
 
         {/* Stacking Cards Column */}

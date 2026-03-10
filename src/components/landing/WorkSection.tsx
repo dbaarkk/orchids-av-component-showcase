@@ -2,7 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { useScroll, useTransform, motion, MotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 const projects = [
@@ -75,7 +75,7 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
             </span>
           </div>
 
-          <h3 className="text-xl md:text-2xl font-black tracking-tight text-zinc-500 leading-none truncate pr-4 uppercase">
+          <h3 className="text-lg md:text-xl font-medium italic tracking-tight text-muted-foreground leading-none truncate pr-4">
             {project.title}
           </h3>
 
@@ -105,6 +105,12 @@ export function WorkSection() {
     offset: ['start start', 'end end']
   });
 
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <section id="work" ref={container} className="relative bg-white font-plus-jakarta py-24 px-4 md:px-12">
       <div className="max-w-7xl mx-auto">
@@ -125,7 +131,7 @@ export function WorkSection() {
                 key={project.title}
                 project={project}
                 index={index}
-                progress={scrollYProgress}
+                progress={smoothProgress}
                 range={[index * 0.25, 1]}
                 targetScale={targetScale}
               />

@@ -56,13 +56,13 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div ref={container} className="h-screen flex items-center justify-center sticky top-0">
+    <div ref={container} className="h-screen flex items-center justify-center sticky top-0 pointer-events-none">
       <motion.div
         style={{
           scale,
           top: `calc(10vh + ${index * 28}px)`,
         }}
-        className="relative aspect-square bg-black border border-white/10 rounded-[2rem] p-8 md:p-14 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden w-[90vw] max-w-[550px]"
+        className="relative aspect-square bg-black border border-white/10 rounded-[2rem] p-8 md:p-14 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden w-[90vw] max-w-[550px] pointer-events-auto shadow-2xl"
       >
         {/* Top: Project Info */}
         <div className="flex flex-col gap-6">
@@ -75,7 +75,7 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
             </span>
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-black tracking-tight text-white leading-tight break-words pr-4">
+          <h3 className="text-xl md:text-2xl font-black tracking-tight text-zinc-500 leading-none truncate pr-4 uppercase">
             {project.title}
           </h3>
 
@@ -88,7 +88,7 @@ function Card({ project, index, progress, range, targetScale }: CardProps) {
         <Link
           href={project.link}
           target="_blank"
-          className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-14 px-10 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300"
+          className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-14 px-10 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300 pointer-events-auto"
         >
           Visit
           <ExternalLink className="w-4 h-4" />

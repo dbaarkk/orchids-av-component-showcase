@@ -23,7 +23,7 @@ export function Navbar() {
           Process
         </Link>
         <Link
-          href="https://info.aaryaveersharma.in"
+          href="https:/sovereignsites.in"
           target="_blank"
           className="text-sm font-bold hover:text-muted-foreground transition-colors uppercase tracking-widest"
         >

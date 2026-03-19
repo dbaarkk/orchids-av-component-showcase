@@ -5,11 +5,19 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { categories, components } from "@/lib/data";
 import { ComponentPreview } from "@/components/library/ComponentPreview";
-import { Copy, Check, Eye, Code, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Copy, Check, Code, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function ComponentsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Component Library - Aaryaveer Sharma",
+    "description": "A collection of beautifully crafted UI components to copy and paste into your projects.",
+    "url": "https://aaryaveersharma.in/components"
+  };
   const [searchQuery, setSearchQuery] = useState("");
   const [copyingId, setCopyingId] = useState<string | null>(null);
 
@@ -28,6 +36,10 @@ export default function ComponentsPage() {
 
   return (
     <main className="min-h-screen flex flex-col pt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Navbar />
       
       <div className="flex flex-1">

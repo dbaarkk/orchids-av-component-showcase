@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const roles = ["Full Stack Website Developer", "Founder of Sovereign Sites"];
@@ -27,15 +28,19 @@ export function LandingHero() {
   return (
     <section
       className="relative pt-40 pb-24 flex flex-col items-center text-center px-4 overflow-hidden min-h-[85vh] justify-center font-plus-jakarta"
-      style={{
-        backgroundImage: "url('/hero-bg.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
-        backgroundRepeat: "no-repeat",
-      }}
     >
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+      {/* Background Image */}
+      <Image
+        src="/hero-bg.jpg"
+        alt="Aaryaveer Sharma Portfolio Background"
+        fill
+        priority
+        unoptimized
+        className="object-cover object-top -z-20 scale-[1.03] blur-[2px]"
+      />
+
+      {/* Subtle overlay for readability while maintaining brightness */}
+      <div className="absolute inset-0 bg-black/15 pointer-events-none -z-10" />
 
       {/* Available badge */}
       <motion.div
@@ -43,7 +48,6 @@ export function LandingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="relative z-10 flex items-center gap-2 mb-8 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase text-white"
-        style={{ textShadow: "0 2px 8px rgba(0,0,0,0.8)" }}
       >
         <span className="inline-block w-2 h-2 rounded-full bg-white animate-pulse" />
         Available for new projects 2026
@@ -54,21 +58,16 @@ export function LandingHero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-white"
+        className="relative z-10 text-5xl md:text-[8rem] font-black tracking-tighter mb-4 max-w-6xl leading-[0.85] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
         style={{
-          textShadow:
-            "0 4px 24px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.5)",
+          backfaceVisibility: "hidden",
+          WebkitFontSmoothing: "antialiased",
+          transform: "translateZ(0)"
         }}
       >
         Aaryaveer Sharma&apos;s
         <br />
-        <span
-          className="italic font-medium"
-          style={{
-            textShadow:
-              "0 4px 24px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.8)",
-          }}
-        >
+        <span className="font-instrument-serif text-zinc-400 block mt-4 italic">
           Portfolio
         </span>
       </motion.h1>
@@ -89,11 +88,7 @@ export function LandingHero() {
             exit={{ rotateX: 90, opacity: 0, y: -20 }}
             transition={{ duration: 0.45, ease: "easeInOut" }}
             className="absolute text-lg md:text-2xl font-bold tracking-tight text-white"
-            style={{
-              transformOrigin: "center",
-              textShadow:
-                "0 3px 16px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.9)",
-            }}
+            style={{ transformOrigin: "center" }}
           >
             {roles[roleIndex]}
           </motion.span>
@@ -106,10 +101,6 @@ export function LandingHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.35, ease: "easeOut" }}
         className="relative z-10 text-base md:text-lg text-white/90 mb-12 max-w-xl leading-relaxed tracking-tight"
-        style={{
-          textShadow:
-            "0 2px 12px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.9)",
-        }}
       >
         Specializing in bespoke web solutions — crafted for businesses and individuals who refuse to settle for ordinary.
       </motion.p>
@@ -136,8 +127,7 @@ export function LandingHero() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 pointer-events-none z-10"
       >
-        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80"
-          style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
+        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/80">
           Scroll to explore
         </span>
         <div className="w-px h-12 bg-white/20 relative overflow-hidden">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { VisualEditsMessenger } from "orchids-visual-edits";
 
@@ -15,11 +15,49 @@ const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+});
+
 export const metadata: Metadata = {
-  title: "AV Asset Library",
-  description: "Advanced components for modern web developers.",
+  metadataBase: new URL("https://aaryaveersharma.in"),
+  title: "Aaryaveer Sharma | Portfolio",
+  description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+  applicationName: "Aaryaveer Sharma",
+  appleWebApp: {
+    title: "Aaryaveer Sharma",
+  },
   icons: {
-    icon: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/file_00000000331c7206b95a8124ab4d9582-1772627591543.png?width=8000&height=8000&resize=contain",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
+  openGraph: {
+    title: "Aaryaveer Sharma | Portfolio",
+    description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+    url: "https://aaryaveersharma.in",
+    siteName: "Aaryaveer Sharma",
+    images: [
+      {
+        url: "/hero-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aaryaveer Sharma Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aaryaveer Sharma | Portfolio",
+    description: "Personal portfolio of Aaryaveer Sharma, showcasing high-end web development and digital solutions.",
+    images: ["/hero-bg.jpg"],
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -40,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${plusJakartaSans.variable} ${jetBrainsMono.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${jetBrainsMono.variable} ${instrumentSerif.variable} antialiased`}
       >
         {children}
         <VisualEditsMessenger />

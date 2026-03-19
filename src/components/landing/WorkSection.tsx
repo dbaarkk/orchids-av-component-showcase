@@ -2,6 +2,8 @@
 
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { useScroll, useTransform, motion, MotionValue, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 const projects = [
   {
@@ -10,7 +12,6 @@ const projects = [
     description:
       "A premium web development agency specializing in high-performance, conversion-optimized digital experiences for modern brands.",
     link: "https://sovereignsites.in",
-    bg: "#ffffff",
   },
   {
     title: "theurbanauto.com",
@@ -18,7 +19,6 @@ const projects = [
     description:
       "A sleek booking website for an upscale garage — customers can schedule services, explore packages, and track their vehicle's status online.",
     link: "https://theurbanauto.com",
-    bg: "#f5f5f7",
   },
   {
     title: "app.theurbanauto.com",
@@ -26,90 +26,118 @@ const projects = [
     description:
       "Internal management app for The Urban Auto — streamlining job cards, customer records, service workflows, and real-time garage operations.",
     link: "https://app.theurbanauto.com",
-    bg: "#ffffff",
   },
   {
     title: "inkai.in",
     tag: "Manga Brand",
     description:
-      "An immersive e-commerce platform for a manga lifestyle brand — featuring art prints, apparel, and collectibles with a hand-crafted visual identity built for true fans.",
+      "An immersive e-commerce platform for a manga lifestyle brand — featuring art prints, apparel, and collectibles with a hand-crafted visual identity.",
     link: "https://inkai.in",
-    bg: "#f5f5f7",
   },
   {
-    title: "petalmind.in",
-    tag: "Mental Wellness",
+    title: "info.aaryaveersharma.in",
+    tag: "Information",
     description:
-      "An AI-powered mental wellness ecosystem providing empathetic, personalized support and evidence-based therapeutic tools for holistic growth.",
-    link: "https://petalmind.in",
-    bg: "#ffffff",
+      "A comprehensive digital resume and information portal detailing professional experience, technical expertise, and personal milestones.",
+    link: "https://info.aaryaveersharma.in",
   },
 ];
 
-export function WorkSection() {
+interface CardProps {
+  project: typeof projects[0];
+  index: number;
+  progress: MotionValue<number>;
+  range: [number, number];
+  targetScale: number;
+}
+
+function Card({ project, index, progress, range, targetScale }: CardProps) {
+  const container = useRef(null);
+  const scale = useTransform(progress, range, [1, targetScale]);
+
   return (
-    <section id="work" className="relative bg-white font-plus-jakarta">
-      {/* Section heading — normal flow, not sticky */}
-      <div className="pt-24 pb-16 flex flex-col items-center text-center px-4">
-        <h2 className="text-6xl md:text-[8rem] font-black tracking-tighter leading-none text-black mb-6">
-          Selected <br /> Works
-        </h2>
-        <div className="w-24 h-[6px] bg-black rounded-full" />
-      </div>
-
-      {/* Stacking cards via CSS sticky */}
-      <div className="relative px-4 md:px-12 pb-8">
-        {projects.map((project, index) => (
-          <div
-            key={project.title}
-            className="sticky"
-            style={{
-              top: `${72 + index * 18}px`,
-              zIndex: index + 1,
-              marginBottom: index === projects.length - 1 ? 0 : "0px",
-            }}
-          >
-            <div
-              className="w-full max-w-6xl mx-auto rounded-[2.5rem] border border-black/10 shadow-[0_20px_60px_-10px_rgba(0,0,0,0.12)] p-8 md:p-14 flex flex-col md:flex-row md:items-center md:justify-between gap-8"
-              style={{ backgroundColor: project.bg }}
-            >
-              {/* Left: text content */}
-              <div className="flex flex-col gap-4 flex-1 min-w-0">
-                {/* Tag + project number */}
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-black tracking-[0.3em] uppercase text-black/30">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-xs font-black tracking-widest uppercase bg-black/5 border border-black/10 px-3 py-1 rounded-full text-black/60">
-                    {project.tag}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-black tracking-tight text-black leading-none">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-base md:text-lg text-black/60 font-medium leading-relaxed max-w-xl">
-                  {project.description}
-                </p>
-              </div>
-
-              {/* Right: visit button */}
-              <Link
-                href={project.link}
-                target="_blank"
-                className="shrink-0 flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl text-sm font-black uppercase tracking-widest hover:bg-black/80 transition-colors self-start md:self-center"
-              >
-                Visit
-                <ExternalLink className="w-4 h-4" />
-              </Link>
-            </div>
+    <div ref={container} className="h-screen flex items-center justify-center sticky top-0 pointer-events-none">
+      <motion.div
+        style={{
+          scale,
+          top: `calc(10vh + ${index * 28}px)`,
+        }}
+        className="relative aspect-square bg-black border border-white/10 rounded-[2rem] p-8 md:p-14 flex flex-col justify-between hover:border-white/30 transition-all group overflow-hidden w-[90vw] max-w-[550px] pointer-events-auto shadow-2xl"
+      >
+        {/* Top: Project Info */}
+        <div className="flex flex-col gap-6">
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-black tracking-[0.3em] uppercase text-zinc-500">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span className="text-[10px] font-black tracking-widest uppercase bg-white/5 border border-white/10 px-3 py-1 rounded-full text-zinc-400">
+              {project.tag}
+            </span>
           </div>
-        ))}
-        {/* Spacer so last card doesn't get buried under sticky cards */}
-        <div style={{ height: `${projects.length * 18 + 40}px` }} />
+
+          <h3 className="text-lg md:text-xl font-medium italic tracking-tight text-muted-foreground leading-none truncate pr-4">
+            {project.title}
+          </h3>
+
+          <p className="text-base md:text-lg text-zinc-400 font-medium leading-relaxed">
+            {project.description}
+          </p>
+        </div>
+
+        {/* Bottom: Visit Button */}
+        <Link
+          href={project.link}
+          target="_blank"
+          className="inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 text-white h-14 px-10 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all w-full group-hover:scale-[1.02] transform duration-300 pointer-events-auto"
+        >
+          Visit
+          <ExternalLink className="w-4 h-4" />
+        </Link>
+      </motion.div>
+    </div>
+  );
+}
+
+export function WorkSection() {
+  const container = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start start', 'end end']
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  return (
+    <section id="work" ref={container} className="relative bg-white font-plus-jakarta py-24 px-4 md:px-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <div className="mb-20 text-center flex flex-col items-center">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-black mb-6">
+            Selected <br /> Works
+          </h2>
+          <div className="w-24 h-1.5 bg-black rounded-full" />
+        </div>
+
+        {/* Stacking Cards Column */}
+        <div className="flex flex-col gap-0">
+          {projects.map((project, index) => {
+            const targetScale = 1 - ( (projects.length - index) * 0.05);
+            return (
+              <Card
+                key={project.title}
+                project={project}
+                index={index}
+                progress={smoothProgress}
+                range={[index * 0.25, 1]}
+                targetScale={targetScale}
+              />
+            );
+          })}
+        </div>
       </div>
     </section>
   );

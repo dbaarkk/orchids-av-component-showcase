@@ -3,7 +3,12 @@
 import { motion, useScroll, useTransform, useSpring, MotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
 
-const steps = [
+interface Step {
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
   {
     title: "Discovery",
     description: "Deep dive into your business goals, target audience, and competition to craft a precise digital roadmap."
@@ -41,7 +46,7 @@ function ProgressDot({ index, total, progress }: { index: number, total: number,
   );
 }
 
-function StepContent({ step, index, total, progress }: { step: any, index: number, total: number, progress: MotionValue<number> }) {
+function StepContent({ step, index, total, progress }: { step: Step, index: number, total: number, progress: MotionValue<number> }) {
   // Each step occupies 1/total of the scroll range
   const segmentSize = 1 / total;
   const start = index * segmentSize;
@@ -150,7 +155,7 @@ export function ProcessSection() {
           <div className="flex items-center gap-12 h-full py-20 overflow-visible">
             {/* Progress Label */}
             <div className="hidden xl:flex flex-col items-end justify-center text-right opacity-30 pointer-events-none">
-              <span className="text-xs font-black tracking-widest uppercase mb-4">The <br /> Process</span>
+              <h2 className="text-xs font-black tracking-widest uppercase mb-4">The <br /> Process</h2>
               <div className="w-12 h-1 bg-black rounded-full" />
             </div>
 
